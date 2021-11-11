@@ -1,7 +1,9 @@
 package com.api.financeflux.application.outbound;
 
+import com.api.financeflux.domain.CurrencyRate;
+
 public interface CurrencyRestGateway {
 
-	String requestCurrencyBySymbols(String... symbols);
+	CurrencyRate requestCurrencyBySymbols(String origin, String destination);
 	String requestAllCurrency();
 }

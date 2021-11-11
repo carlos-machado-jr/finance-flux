@@ -1,27 +1,29 @@
 package com.api.financeflux.domain;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 public class TransactionDomain {
 	private String idTransaction;
 	private UserDomain user;
 	private CurrencyDomain currencyOrigin;
 	private CurrencyDomain currencyDestination;
-	private String conversionRate;
+	private BigDecimal conversionRate;
 	private LocalDateTime dateTime;
 
 	public TransactionDomain() {
 	}
 
-	public TransactionDomain(String idTransaction, UserDomain user, CurrencyDomain currencyOrigin,
-			CurrencyDomain currencyDestination, String conversionRate, LocalDateTime dateTime) {
+	public TransactionDomain(UserDomain user, CurrencyDomain currencyOrigin,
+			CurrencyDomain currencyDestination, BigDecimal conversionRate) {
 		super();
-		this.idTransaction = idTransaction;
+		this.idTransaction = UUID.randomUUID().toString();
 		this.user = user;
 		this.currencyOrigin = currencyOrigin;
 		this.currencyDestination = currencyDestination;
 		this.conversionRate = conversionRate;
-		this.dateTime = dateTime;
+		this.dateTime = LocalDateTime.now();
 	}
 
 	public String getIdTransaction() {
@@ -56,11 +58,11 @@ public class TransactionDomain {
 		this.currencyDestination = currencyDestination;
 	}
 
-	public String getConversionRate() {
+	public BigDecimal getConversionRate() {
 		return conversionRate;
 	}
 
-	public void setConversionRate(String conversionRate) {
+	public void setConversionRate(BigDecimal conversionRate) {
 		this.conversionRate = conversionRate;
 	}
 
