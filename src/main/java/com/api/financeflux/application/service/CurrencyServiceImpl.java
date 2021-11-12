@@ -1,6 +1,7 @@
 package com.api.financeflux.application.service;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import com.api.financeflux.application.outbound.CurrencyRestGateway;
 import com.api.financeflux.application.outbound.TransactionRepository;
@@ -24,6 +25,7 @@ public class CurrencyServiceImpl implements CurrencyService {
 	public TransactionDomain convertCurrency(CurrencyDomain origin, CurrencyDomain destination, UserDomain user) {
 		final CurrencyRate currencyRate = gateway.requestCurrencyBySymbols(origin.getSymbol(), destination.getSymbol());
 		final BigDecimal conversionRate = getConversionRate(currencyRate);
+		System.out.println(conversionRate);
 		destination.setValue(getDestinationValue(conversionRate, origin.getValue()));
 		TransactionDomain transaction = new TransactionDomain(user, origin, destination, conversionRate);
 		return repository.save(transaction);
@@ -35,7 +37,7 @@ public class CurrencyServiceImpl implements CurrencyService {
 
 	private BigDecimal getConversionRate(CurrencyRate currencyRate) {
 		final BigDecimal destinationValue = currencyRate.getDestinationValue();
-		return currencyRate.getOriginValue().divide(destinationValue);
+		return currencyRate.getOriginValue().divide(destinationValue, 20, RoundingMode.HALF_UP);
 	}
 
 }
