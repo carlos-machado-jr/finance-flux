@@ -1,7 +1,6 @@
 package com.api.financeflux.domain;
 
 import java.math.BigDecimal;
-import java.util.Objects;
 
 public class CurrencyDomain {
 
@@ -43,10 +42,6 @@ public class CurrencyDomain {
 		this.value = value;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(idCurrency, symbol, value);
-	}
 
 	
 	
