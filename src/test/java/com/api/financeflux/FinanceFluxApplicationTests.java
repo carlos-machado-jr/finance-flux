@@ -8,6 +8,7 @@ class FinanceFluxApplicationTests {
 
 	@Test
 	void contextLoads() {
+		FinanceFluxApplication.main(new String[] {});
 	}
 
 }
