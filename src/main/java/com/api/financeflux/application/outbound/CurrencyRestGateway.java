@@ -4,6 +4,5 @@ import com.api.financeflux.domain.CurrencyRate;
 
 public interface CurrencyRestGateway {
 
-	CurrencyRate requestCurrencyBySymbols(String origin, String destination);
-	String requestAllCurrency();
+	CurrencyRate requestCurrencyBySymbols(String origin, String destination) throws Exception;
 }
