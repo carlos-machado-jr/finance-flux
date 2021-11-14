@@ -22,13 +22,13 @@ public class CurrencyServiceImpl implements CurrencyService {
 	}
 
 	@Override
-	public TransactionDomain convertCurrency(CurrencyDomain origin, CurrencyDomain destination, UserDomain user) {
+	public TransactionDomain convertCurrency(CurrencyDomain origin, CurrencyDomain destination, UserDomain user) throws Exception {
 		final CurrencyRate currencyRate = gateway.requestCurrencyBySymbols(origin.getSymbol(), destination.getSymbol());
 		final BigDecimal conversionRate = getConversionRate(currencyRate);
-		System.out.println(conversionRate);
 		destination.setValue(getDestinationValue(conversionRate, origin.getValue()));
 		TransactionDomain transaction = new TransactionDomain(user, origin, destination, conversionRate);
-		return repository.save(transaction);
+//		return repository.save(transaction);
+		return transaction;
 	}
 
 	private BigDecimal getDestinationValue(BigDecimal conversionRate, BigDecimal value) {

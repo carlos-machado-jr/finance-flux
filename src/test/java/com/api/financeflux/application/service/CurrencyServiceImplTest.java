@@ -46,7 +46,7 @@ class CurrencyServiceImplTest {
 
 	}
 
-	private void mockGateway() {
+	private void mockGateway() throws Exception {
 		BigDecimal originValue = new BigDecimal("6.302769");
 		BigDecimal destinationValue = new BigDecimal("1.147756");
 		when(gateway.requestCurrencyBySymbols(anyString(), anyString()))
@@ -55,7 +55,7 @@ class CurrencyServiceImplTest {
 	}
 
 	@Test
-	void convertCurrencyTest() {
+	void convertCurrencyTest() throws Exception {
 		assertEquals(transaction, currency.convertCurrency(currencyOrigin, currencyDestination, user));
 	}
 
