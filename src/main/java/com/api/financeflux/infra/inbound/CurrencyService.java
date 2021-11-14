@@ -6,5 +6,5 @@ import com.api.financeflux.domain.UserDomain;
 
 public interface CurrencyService {
 
-	TransactionDomain convertCurrency(CurrencyDomain origin, CurrencyDomain destination, UserDomain user);
+	TransactionDomain convertCurrency(CurrencyDomain origin, CurrencyDomain destination, UserDomain user) throws Exception;
 }
