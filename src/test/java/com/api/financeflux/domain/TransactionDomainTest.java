@@ -15,23 +15,21 @@ class TransactionDomainTest {
 	@BeforeEach
 	void setUp() throws Exception {
 	transaction = new TransactionDomain();
-	transaction.setCurrencyOrigin(new CurrencyDomain("id", "symbol", new BigDecimal(1.0)));
-	transaction.setCurrencyDestination(new CurrencyDomain("id", "symbol", new BigDecimal(1.0)));
+	transaction.setCurrencyOrigin(new CurrencyDomain( "symbol", new BigDecimal(1.0)));
+	transaction.setCurrencyDestination(new CurrencyDomain( "symbol", new BigDecimal(1.0)));
 	transaction.setIdTransaction("id");
 	transaction.setConversionRate(new BigDecimal(1.0));
 	transaction.setDateTime(LocalDateTime.now());
-	transaction.setUser(new UserDomain());
 	}
 
 	@Test
 	void testSetters() {
-		transaction = new TransactionDomain(new UserDomain(), new CurrencyDomain(), new CurrencyDomain(), new BigDecimal(1.0));
+		transaction = new TransactionDomain(new CurrencyDomain(), new CurrencyDomain(), new BigDecimal(1.0));
 		assertNotNull(transaction.getIdTransaction());
 		assertNotNull(transaction.getCurrencyOrigin());
 		assertNotNull(transaction.getCurrencyDestination());
 		assertNotNull(transaction.getConversionRate());
 		assertNotNull(transaction.getDateTime());
-		assertNotNull(transaction.getUser());
 	
 	}
 

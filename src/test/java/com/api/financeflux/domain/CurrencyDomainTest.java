@@ -21,7 +21,7 @@ class CurrencyDomainTest {
 
 	@Test
 	void testSetters() {
-		currency = new CurrencyDomain("id", "symbol", new BigDecimal(1));
+		currency = new CurrencyDomain("symbol", new BigDecimal(1));
 		assertNotNull(currency.getIdCurrency());
 		assertNotNull(currency.getSymbol());
 		assertNotNull(currency.getValue());

@@ -19,7 +19,7 @@ class UserDomainTest {
 
 	@Test
 	void testSetters() {
-		user = new UserDomain("sss", "name", "pass");
+		user = new UserDomain("name", "pass");
 		assertNotNull(user.getIdUser());
 		assertNotNull(user.getName());
 		assertNotNull(user.getPassword());

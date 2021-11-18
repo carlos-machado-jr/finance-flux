@@ -6,7 +6,6 @@ import java.util.UUID;
 
 public class TransactionDomain {
 	private String idTransaction;
-	private UserDomain user;
 	private CurrencyDomain currencyOrigin;
 	private CurrencyDomain currencyDestination;
 	private BigDecimal conversionRate;
@@ -15,11 +14,10 @@ public class TransactionDomain {
 	public TransactionDomain() {
 	}
 
-	public TransactionDomain(UserDomain user, CurrencyDomain currencyOrigin,
-			CurrencyDomain currencyDestination, BigDecimal conversionRate) {
+	public TransactionDomain(CurrencyDomain currencyOrigin, CurrencyDomain currencyDestination,
+			BigDecimal conversionRate) {
 		super();
 		this.idTransaction = UUID.randomUUID().toString();
-		this.user = user;
 		this.currencyOrigin = currencyOrigin;
 		this.currencyDestination = currencyDestination;
 		this.conversionRate = conversionRate;
@@ -32,14 +30,6 @@ public class TransactionDomain {
 
 	public void setIdTransaction(String idTransaction) {
 		this.idTransaction = idTransaction;
-	}
-
-	public UserDomain getUser() {
-		return user;
-	}
-
-	public void setUser(UserDomain user) {
-		this.user = user;
 	}
 
 	public CurrencyDomain getCurrencyOrigin() {

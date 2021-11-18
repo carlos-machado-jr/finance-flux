@@ -1,19 +1,32 @@
 package com.api.financeflux.domain;
 
+import java.util.List;
+import java.util.UUID;
+
 public class UserDomain {
 
 	private String idUser;
 	private String name;
 	private String password;
+	private List<TransactionDomain> transactions;
 
 	public UserDomain() {
 	}
 
-	public UserDomain(String idUser, String name, String password) {
+	public UserDomain(String name, String password) {
 		super();
-		this.idUser = idUser;
+		this.idUser = UUID.randomUUID().toString();
 		this.name = name;
 		this.password = password;
+	}
+
+	
+	public UserDomain( String name, String password, List<TransactionDomain> transactions) {
+		super();
+		this.idUser = UUID.randomUUID().toString();
+		this.name = name;
+		this.password = password;
+		this.transactions = transactions;
 	}
 
 	public String getIdUser() {
@@ -40,4 +53,14 @@ public class UserDomain {
 		this.password = password;
 	}
 
+	public List<TransactionDomain> getTransactions() {
+		return transactions;
+	}
+
+	public void setTransactions(List<TransactionDomain> transactions) {
+		this.transactions = transactions;
+	}
+
+
+	
 }

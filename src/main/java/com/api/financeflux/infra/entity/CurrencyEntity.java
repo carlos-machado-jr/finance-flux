@@ -1,23 +1,15 @@
-package com.api.financeflux.domain;
+package com.api.financeflux.infra.entity;
 
 import java.math.BigDecimal;
-import java.util.UUID;
 
-public class CurrencyDomain {
+import org.springframework.data.mongodb.core.mapping.Document;
+@Document(collation = "currency")
+public class CurrencyEntity {
 
 	private String idCurrency;
 	private String symbol;
 	private BigDecimal value;
 
-	public CurrencyDomain() {
-	}
-
-	public CurrencyDomain(String symbol, BigDecimal value) {
-		super();
-		this.idCurrency = UUID.randomUUID().toString();
-		this.symbol = symbol;
-		this.value = value;
-	}
 
 	public String getIdCurrency() {
 		return idCurrency;
@@ -46,6 +38,4 @@ public class CurrencyDomain {
 
 
 	
-	
-
 }
