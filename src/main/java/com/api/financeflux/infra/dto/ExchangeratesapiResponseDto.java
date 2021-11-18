@@ -14,5 +14,10 @@ public class ExchangeratesapiResponseDto {
 		this.rates = rates;
 	}
 
+	@Override
+	public String toString() {
+		return "ExchangeratesapiResponseDto [rates=" + rates + "]";
+	}
 
+	
 }
