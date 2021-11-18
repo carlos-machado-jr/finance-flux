@@ -4,6 +4,7 @@ import com.api.financeflux.domain.UserDomain;
 
 public interface UserService {
 
-	UserDomain register(UserDomain user);
+	UserDomain save(UserDomain user);
+	UserDomain findById(String id) throws Exception;
 	
 }
